@@ -22,6 +22,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+
+
 @Entity
 @Table(name = "tb_user")
 public class User implements UserDetails, Serializable {
@@ -31,6 +33,7 @@ public class User implements UserDetails, Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(unique = true)
+	private String name;
 	private String email;
 	private String password;
 
@@ -45,9 +48,10 @@ public class User implements UserDetails, Serializable {
 
 	}
 
-	public User(Long id, String email, String password) {
+	public User(Long id, String email,String name, String password) {
 		super();
 		this.id = id;
+		this.name = name;
 		this.email = email;
 		this.password = password;
 	}
@@ -58,6 +62,14 @@ public class User implements UserDetails, Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getEmail() {
@@ -126,6 +138,15 @@ public class User implements UserDetails, Serializable {
 	@Override
 	public boolean isEnabled() {
 		return true;
+	}
+	
+	public boolean hasRole(String roleName) {
+		for (Role role : roles) {
+			if (role.getAuthority().equals(roleName)) {
+				return true;
+			}
+		} 
+		return false;
 	}
 
 }
