@@ -21,7 +21,7 @@ public class UserResource {
 
 	@GetMapping(value = "/profile")
 	public ResponseEntity<UserDTO> getProfile(){
-		UserDTO dto = service.getProfileAuthenticated();
-		return ResponseEntity.ok().body(dto);
+		//UserDTO dto = service.getProfileAuthenticated();
+		return ResponseEntity.ok().body(service.findUser());
 	}
 }

@@ -22,6 +22,8 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     private UserRepository repository;
+    @Autowired
+    private AuthService authService;
 
     @Transactional(readOnly = true)
     public UserDTO getProfileAuthenticated() {
@@ -32,6 +34,11 @@ public class UserService implements UserDetailsService {
         } catch (Exception e) {
             throw new UnauthorizedException("Invalid user");
         }
+    }
+
+    public UserDTO findUser() {
+        User user = (User) loadUserByUsername(authService.authenticated().getUsername());
+        return new UserDTO(user);
     }
 
     @Override
