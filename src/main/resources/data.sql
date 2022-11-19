@@ -19,3 +19,7 @@ INSERT INTO tb_movie(title, sub_title, year, img_url, synopsis, genre_id) VALUES
 INSERT INTO tb_movie(title, sub_title, year, img_url, synopsis, genre_id) VALUES ('Top Gun','Maverick',2022,'https://www.themoviedb.org/t/p/original/4aLjHD7sfMzEXin4qa7v6AJYo9R.jpg','Depois de mais de 30 anos de serviço como um dos principais aviadores da Marinha, Pete "Maverick" Mitchell está de volta, rompendo os limites como um piloto de testes corajoso. No mundo contemporâneo das guerras tecnológicas, Maverick enfrenta drones e prova que o fator humano ainda é essencial.', 2);
 INSERT INTO tb_movie(title, sub_title, year, img_url, synopsis, genre_id) VALUES ('1899',null,2022,'https://www.themoviedb.org/t/p/original/wzAeyjlaMMQKAaPcxM9tZkbchoN.jpg','Em um navio a vapor migrante rumo ao oeste para deixar o velho continente de Londres para Nova York, os passageiros, uma mistura de origens europeias, estão unidos por suas esperanças e sonhos para o novo século e seu futuro no exterior. Quando eles descobrem outro navio migrante à deriva em mar aberto, sua jornada toma um rumo inesperado. O que eles encontrarem a bordo transformará sua passagem para a terra prometida em um pesadelo horrível.', 3);
 
+
+INSERT INTO tb_review(text,movie_id,user_id) VALUES ('Filme de terror repugnante',1,2);
+INSERT INTO tb_review(text,movie_id,user_id) VALUES ('show de bola esse filme',2,1);
+INSERT INTO tb_review(text,movie_id,user_id) VALUES ('filme sisnistro',3,1);
