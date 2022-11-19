@@ -54,7 +54,7 @@ public class UserControllerIT {
 		
 		result.andExpect(status().isOk());
 		result.andExpect(jsonPath("$.id").isNotEmpty());
-		result.andExpect(jsonPath("$.name").isNotEmpty());
+			result.andExpect(jsonPath("$.name").isNotEmpty());
 		result.andExpect(jsonPath("$.email").value(visitorUsername));
 	}
 
